@@ -82,6 +82,7 @@ def jogo_finalizado():
 
 while "_" in linha and erros <= 6:
     encontrou= False
+    #Adicionei o .lower() para quando for inteirar a lista não de erro
     tentativa = input(str("Digite a letra que deseja tentar:")).lower()
 
      #utilizado para garantir que foi digitado apenas um caractere e que o caractere é uma letra
