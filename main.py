@@ -132,3 +132,5 @@ while "_" in linha and erros <= 6:
           print(f"erros: {erros}/6")
 
 jogo_finalizado()
+
+jogo_finalizado()
