@@ -7,6 +7,7 @@ linha = list("_"*len(palavra))
 #Variavel responsável por verificar quantos erros já foram cometidos pelo usuário
 erros = 0 
 historico_tentativas= []
+modo_jogo = 0
 
 forca=['''
     ______
@@ -66,6 +67,24 @@ forca=['''
     |
 ''']
 
+def escolher_modo():
+     global modo_jogo
+     print('''
+     Escolha qual modo de jogo deseja jogar:
+          
+     1- Eu quero escolher a palavra que será usada no jogo.
+     2- Eu quero escolher apenas uma categoria e o sistema vai usar uma palavra dessa categoria.''')
+     
+def executar_modo_jogo():
+     global modo_jogo
+     if modo_jogo == "1":
+          print("1 modo")
+     if modo_jogo == "2":
+          print("2 modo")
+     if modo_jogo != "1" or "2":
+          print("Alternativa Incorreta!")
+
+
 def letra_encontrada():
      print(f"A letra {tentativa} foi encontrada na palavra!")
      historico_tentativas.append(tentativa)
@@ -78,13 +97,12 @@ def letra_errada():
 def jogo_finalizado():
      print("--------------- Parabens jogo finalizado com sucesso!---------------")
 
-# print('''
-# Escolha qual modo de jogo deseja jogar:
-      
-# 1- Eu quero escolher a palavra que será usada no jogo.
-# 2- De''')
-
+while modo_jogo != "1" and "2":
+     escolher_modo()
+     modo_jogo= input(str("Digite a letra referente ao modo de jogo que deseja:"))
+     executar_modo_jogo()
      
+print(modo_jogo)
 
 while "_" in linha and erros < 6:
     encontrou= False
