@@ -15,8 +15,7 @@ forca=['''
     |   
     |      
     |
-'''
-       
+'''      
 ,'''
     ______
     |    |
@@ -78,9 +77,16 @@ def letra_errada():
 
 def jogo_finalizado():
      print("--------------- Parabens jogo finalizado com sucesso!---------------")
+
+# print('''
+# Escolha qual modo de jogo deseja jogar:
+      
+# 1- Eu quero escolher a palavra que será usada no jogo.
+# 2- De''')
+
      
 
-while "_" in linha and erros <= 6:
+while "_" in linha and erros < 6:
     encontrou= False
     #Adicionei o .lower() para quando for inteirar a lista não de erro
     tentativa = input(str("Digite a letra que deseja tentar:")).lower()
