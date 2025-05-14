@@ -82,7 +82,7 @@ def jogo_finalizado():
 
 while "_" in linha and erros <= 6:
     encontrou= False
-    tentativa = input(str("Digite a letra que deseja tentar:"))
+    tentativa = input(str("Digite a letra que deseja tentar:")).lower()
 
      #utilizado para garantir que foi digitado apenas um caractere e que o caractere é uma letra
     if tentativa.isalpha()== True and len(tentativa)< 1:
@@ -133,4 +133,4 @@ while "_" in linha and erros <= 6:
 
 jogo_finalizado()
 
-jogo_finalizado()
+'''"adicionei uma estrutura condicional para evitar tentativas repetidas e evitar que o usuario digite numeros ao inves de letras ou mais de um caractere por tentativa."'''
