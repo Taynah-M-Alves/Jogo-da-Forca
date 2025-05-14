@@ -1,5 +1,5 @@
 # Será a variavel responsável por armazenar a palavra que será usada na forca
-palavra = "viver"
+palavra = "vive"
 #Transforma cada letra da palavra em um elemento da lista
 letras_palavra= list(palavra)
 #Armazena a linha onde mostrará o jogo da forca
@@ -77,13 +77,21 @@ def escolher_modo():
      
 def executar_modo_jogo():
      global modo_jogo
+     global palavra
+     global letras_palavra
+     global linha
      if modo_jogo == "1":
-          print("1 modo")
+          palavra = input(str("Digite a palavra que será usada no jogo:")).lower()
+          letras_palavra = list(palavra)
+          linha= list("_"*len(palavra))
+          print(linha)
+
      if modo_jogo == "2":
           print("2 modo")
-     if modo_jogo != "1" or "2":
-          print("Alternativa Incorreta!")
+     if modo_jogo != "1" and modo_jogo != "2":
+          print("Alternativa Incorreta!23334")
 
+print(palavra)
 
 def letra_encontrada():
      print(f"A letra {tentativa} foi encontrada na palavra!")
@@ -97,12 +105,11 @@ def letra_errada():
 def jogo_finalizado():
      print("--------------- Parabens jogo finalizado com sucesso!---------------")
 
-while modo_jogo != "1" and "2":
+while modo_jogo != "1" and modo_jogo!= "2":
      escolher_modo()
      modo_jogo= input(str("Digite a letra referente ao modo de jogo que deseja:"))
      executar_modo_jogo()
      
-print(modo_jogo)
 
 while "_" in linha and erros < 6:
     encontrou= False
