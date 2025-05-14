@@ -6,7 +6,7 @@ letras_palavra= list(palavra)
 linha = list("_"*len(palavra))
 #Variavel responsável por verificar quantos erros já foram cometidos pelo usuário
 erros = 0 
-tentativas= []
+historico_tentativas= []
 
 forca=['''
     ______
@@ -69,11 +69,11 @@ forca=['''
 
 def letra_encontrada():
      print(f"A letra {tentativa} foi encontrada na palavra!")
-     tentativas.append(tentativa)
+     historico_tentativas.append(tentativa)
 
 def letra_errada():
      print(f"A letra {tentativa} não foi encontrada na palavra!")
-     tentativas.append(tentativa)
+     historico_tentativas.append(tentativa)
      
 
 def jogo_finalizado():
@@ -90,16 +90,16 @@ while "_" in linha and erros <= 6:
          print("Digite apenas uma letra.")
 
      #usado para avisar ao usuário que ele já tentou essa letra antes
-    if tentativa in tentativas:
+    if tentativa in historico_tentativas:
          print("letra já digitada! Tente novemente.")
 
      #garante que só executara o jogo quando a letra ñ for repetida e for apenas um caractere
-    if tentativa not in tentativas and tentativa.isalpha() and len(tentativa) == 1:
+    if tentativa not in historico_tentativas and tentativa.isalpha() and len(tentativa) == 1:
       
           #Intera a lista verificando se a letra está presente na palavra(que é a lista)
           for indice, letra in enumerate(palavra):
                     # Verifica se a letra está na palavra e caso esteja atribui essa letra a sua respectiva posição
-                    if letra == tentativa and len(letra)==1 and letra != tentativas:
+                    if letra == tentativa and len(letra)==1 and letra != historico_tentativas:
                          linha[indice] = letra
                          encontrou= True
                          print(forca[erros])
