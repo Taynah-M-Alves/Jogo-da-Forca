@@ -81,17 +81,15 @@ def executar_modo_jogo():
      global letras_palavra
      global linha
      if modo_jogo == "1":
-          palavra = input(str("Digite a palavra que será usada no jogo:")).lower()
+          palavra = input(str("\n       Digite a palavra que será usada no jogo:")).lower()
           letras_palavra = list(palavra)
           linha= list("_"*len(palavra))
-          print(linha)
 
      if modo_jogo == "2":
           print("2 modo")
      if modo_jogo != "1" and modo_jogo != "2":
           print("Alternativa Incorreta!23334")
 
-print(palavra)
 
 def letra_encontrada():
      print(f"A letra {tentativa} foi encontrada na palavra!")
@@ -107,12 +105,22 @@ def jogo_finalizado():
 
 while modo_jogo != "1" and modo_jogo!= "2":
      escolher_modo()
-     modo_jogo= input(str("Digite a letra referente ao modo de jogo que deseja:"))
+     modo_jogo= input(str("\n      Digite a letra referente ao modo de jogo que deseja:"))
      executar_modo_jogo()
-     
+
+print(f'''
+\n--------------------------------------
+Iniciando jogo...
+--------------------------------------
+Boa sorte!
+{forca[0]}
+{" ".join(linha)}
+{erros}/6''')
+
 
 while "_" in linha and erros < 6:
     encontrou= False
+
     #Adicionei o .lower() para quando for inteirar a lista não de erro
     tentativa = input(str("Digite a letra que deseja tentar:")).lower()
 
