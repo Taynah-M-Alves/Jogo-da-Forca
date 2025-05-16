@@ -81,7 +81,7 @@ def executar_modo_jogo():
      global letras_palavra
      global linha
      if modo_jogo == "1":
-          palavra = input(str("\n       Digite a palavra que será usada no jogo:")).lower()
+          palavra = input(str("\n      Digite a palavra que será usada no jogo:")).lower()
           letras_palavra = list(palavra)
           linha= list("_"*len(palavra))
 
@@ -151,21 +151,7 @@ while "_" in linha and erros < 6:
           elif encontrou == False: 
                letra_errada()
                erros+= 1
-
-               if erros == 0:
-                    print(forca[0])
-               if erros == 1:
-                    print(forca[1])
-               if erros == 2:
-                    print(forca[2])
-               if erros == 3:
-                    print(forca[3])
-               if erros == 4:
-                    print(forca[4])
-               if erros == 5:
-                    print(forca[5])
-               if erros==6:
-                    print(forca[6])
+               print(forca[erros])
           
 
           print(" ".join(linha))
