@@ -1,3 +1,11 @@
+import random
+
+# Dicionário com categorias e suas listas de palavras
+list_categorias = {
+    "animais": ["elefante", "gato", "cachorro", "leão", "tigre"],
+    "frutas": ["maçã", "banana", "laranja", "uva", "melancia"],
+    "cores": ["azul", "vermelho", "verde", "amarelo", "roxo"]
+}
 # Será a variavel responsável por armazenar a palavra que será usada na forca
 palavra = "vive"
 #Transforma cada letra da palavra em um elemento da lista
@@ -8,6 +16,7 @@ linha = list("_"*len(palavra))
 erros = 0 
 historico_tentativas= []
 modo_jogo = 0
+categoria=""
 
 forca=['''
     ______
@@ -75,20 +84,43 @@ def escolher_modo():
      1- Eu quero escolher a palavra que será usada no jogo.
      2- Eu quero escolher apenas uma categoria e o sistema vai usar uma palavra dessa categoria.''')
      
+def escolher_categoria():
+     global categoria
+     print('''
+     Categorias disponíveis:
+           
+     1. Animais
+     2. Frutas
+     3. Cores
+     ''')
+     categoria=input(str("    Digite o nome da categoria que deseja selecionar:")).lower()
+
+
 def executar_modo_jogo():
      global modo_jogo
      global palavra
      global letras_palavra
      global linha
+     global categoria
      if modo_jogo == "1":
           palavra = input(str("\n      Digite a palavra que será usada no jogo:")).lower()
           letras_palavra = list(palavra)
           linha= list("_"*len(palavra))
 
      if modo_jogo == "2":
+          while categoria not in list_categorias:
+               escolher_categoria()
+               if categoria in list_categorias:
+                    palavra = random.choice(list_categorias[categoria])
+                    letras_palavra = list(palavra)
+                    linha= list("_"*len(palavra))
+          
+               else:
+                    print("categoria não encontrada!")
+
           print("2 modo")
      if modo_jogo != "1" and modo_jogo != "2":
-          print("Alternativa Incorreta!23334")
+          print("Alternativa Incorreta!")
 
 
 def letra_encontrada():
